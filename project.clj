@@ -4,6 +4,8 @@
   :license {:name "MIT License"
             :url "http://opensource.org/licenses/MIT"}
 
+  :dependencies [[druids/libphonenumber "0.2.0-snapshot-1"]]
+
 
   :profiles {:dev {:plugins [[lein-cloverage "1.0.10"]
                              [lein-kibit "0.1.6"]
