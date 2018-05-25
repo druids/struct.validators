@@ -44,3 +44,8 @@
 (def non-blank v/non-blank)
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
+
+#?(:clj
+   (def phone-factory v/phone-factory))
+#?(:clj
+   (def cz-phone v/cz-phone))

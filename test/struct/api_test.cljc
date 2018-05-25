@@ -24,3 +24,15 @@
              [nil {:name "foo", :role :admin, :title "Ing."}] {:name "foo", :role "admin", :title "Ing."}
              [{:name "must not be blank"} {:role nil, :title nil}] {:name " ", :role " ", :title ""}
              [nil {:name nil, :role nil, :title nil}] {:name nil, :role nil, :title nil}))))
+
+
+#?(:clj
+   (t/deftest test-phone-number
+     (let [scheme {:phone [st/cz-phone]}]
+
+       (t/are [expected input] (= expected (st/validate input scheme))
+
+              [nil {:phone "+420777666555"}] {:phone "777 666 555"}
+              [nil {:phone "+420777666555"}] {:phone "+420 777 666 555"}
+              [{:phone "this field is not a valid phone number"} {}] {:phone "777 666 55"}
+              [nil {:phone nil}] {:phone ""}))))
