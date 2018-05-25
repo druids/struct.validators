@@ -7,13 +7,16 @@
 
   :profiles {:dev {:plugins [[lein-cloverage "1.0.10"]
                              [lein-kibit "0.1.6"]
-                             [jonase/eastwood "0.2.5"]]
+                             [jonase/eastwood "0.2.6"]]
 
                    :dependencies [[org.clojure/clojure "1.9.0"]
                                   [org.clojure/clojurescript "1.10.238"]
                                   [funcool/struct "1.2.0"]]}
              :cljs {:plugins [[lein-cljsbuild "1.1.7"]
                               [lein-doo "0.1.10"]]
+                    :dependencies [[org.clojure/clojure "1.9.0"]
+                                   [org.clojure/clojurescript "1.10.238"]
+                                   [funcool/struct "1.2.0"]]
                     :doo {:build "test"}
                     :cljsbuild {:builds
                                 {:test {:source-paths ["src" "test"]
