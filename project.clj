@@ -27,4 +27,5 @@
                                                    :process-shim false}}}}}}
   :aliases {"cljs-tests" ["with-profile" "cljs" "doo" "phantom" "once"]
             "cljs-auto" ["with-profile" "cljs" "cljsbuild" "auto"]
-            "cljs-once" ["with-profile" "cljs" "cljsbuild" "once"]})
+            "cljs-once" ["with-profile" "cljs" "cljsbuild" "once"]
+            "coverage" ["with-profile" "dev" "cloverage" "--fail-threshold" "95"]})
