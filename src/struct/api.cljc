@@ -20,6 +20,7 @@
 (def email st/email)
 (def required st/required)
 (def number st/number)
+(def number-str st/number-str)
 (def integer st/integer)
 (def integer-str st/integer-str)
 (def boolean st/boolean)
