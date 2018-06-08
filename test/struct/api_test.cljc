@@ -36,3 +36,14 @@
               [nil {:phone "+420777666555"}] {:phone "+420 777 666 555"}
               [{:phone "this field is not a valid phone number"} {}] {:phone "777 666 55"}
               [nil {:phone nil}] {:phone ""}))))
+
+
+#?(:clj
+   (t/deftest bigdec-str-test
+     (let [scheme {:amount [st/bigdec-str]
+                   :volume [st/bigdec-str]}]
+      (t/are [expected input] (= expected (st/validate input scheme))
+
+             [nil {:amount 1.0M, :volume 1M}] {:amount "1.0", :volume 1}
+
+             [{:amount "must be a number"} {:volume 1M}] {:amount "", :volume 1}))))

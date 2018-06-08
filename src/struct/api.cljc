@@ -44,6 +44,7 @@
 (def non-blank v/non-blank)
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
+(def bigdec-str v/bigdec-str)
 
 #?(:clj
    (def phone-factory v/phone-factory))
