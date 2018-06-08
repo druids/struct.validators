@@ -20,6 +20,7 @@
 (def email st/email)
 (def required st/required)
 (def number st/number)
+(def number-str st/number-str)
 (def integer st/integer)
 (def integer-str st/integer-str)
 (def boolean st/boolean)
@@ -44,6 +45,7 @@
 (def non-blank v/non-blank)
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
+(def bigdec-str v/bigdec-str)
 
 #?(:clj
    (def phone-factory v/phone-factory))

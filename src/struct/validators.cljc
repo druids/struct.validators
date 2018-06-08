@@ -1,6 +1,7 @@
 (ns struct.validators
   (:require
     [clojure.string :refer [blank?]]
+    [cuerdas.core :as cuerdas]
     #?(:clj [libphonenumber.core :as libphonenumber])))
 
 
@@ -34,3 +35,11 @@
 
 #?(:clj
    (def cz-phone (phone-factory "CZ")))
+
+
+#?(:clj
+   (def bigdec-str
+     {:message "must be a number"
+      :optional true
+      :validate #(or (number? %) (and (string? %) (cuerdas/numeric? %)))
+      :coerce bigdec}))

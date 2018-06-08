@@ -9,7 +9,8 @@
 
   :profiles {:dev {:plugins [[lein-cloverage "1.0.10"]
                              [lein-kibit "0.1.6"]
-                             [jonase/eastwood "0.2.6"]]
+                             [jonase/eastwood "0.2.6"]
+                             [eftest "0.5.0"]]
 
                    :dependencies [[org.clojure/clojure "1.9.0"]
                                   [org.clojure/clojurescript "1.10.238"]
