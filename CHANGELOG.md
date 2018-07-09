@@ -1,3 +1,11 @@
+## 0.4.0
+
+#### New Features
+
+  - Add a enum-factory for creating validators #12
+  - Upgrade Cloverage to 1.0.11
+
+
 ## 0.3.0
 
 #### New Features
