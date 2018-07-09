@@ -12,6 +12,7 @@
 (def valid? st/valid?)
 (def valid-single? st/valid-single?)
 
+
 ;; validators
 ;; struct
 (def keyword st/keyword)
@@ -45,8 +46,10 @@
 (def non-blank v/non-blank)
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
-(def bigdec-str v/bigdec-str)
+(def enum-factory v/enum-factory)
 
+#?(:clj
+   (def bigdec-str v/bigdec-str))
 #?(:clj
    (def phone-factory v/phone-factory))
 #?(:clj
