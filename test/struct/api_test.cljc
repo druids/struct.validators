@@ -26,6 +26,15 @@
              [nil {:name nil, :role nil, :title nil}] {:name nil, :role nil, :title nil}))))
 
 
+(t/deftest test-enum-factory
+  (let [scheme {:lang [st/required st/non-blank st/keyword-like (st/enum-factory #{:CZK :EUR})]
+                :num [st/required (st/enum-factory #{0 1 2 4 8})]}]
+    (t/are [expected input] (= expected (st/validate input scheme))
+
+           [{:lang "allowed values: CZK, EUR", :num "allowed values: 0, 1, 2, 4, 8"} {}] {:lang "ASD", :num "-1"}
+           [nil {:lang :CZK, :num 8}] {:lang "CZK", :num 8})))
+
+
 #?(:clj
    (t/deftest test-phone-number
      (let [scheme {:phone [st/cz-phone]}]

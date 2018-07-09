@@ -1,8 +1,28 @@
 (ns struct.validators
   (:require
-    [clojure.string :refer [blank?]]
+    [clojure.string :refer [blank? join]]
     [cuerdas.core :as cuerdas]
-    #?(:clj [libphonenumber.core :as libphonenumber])))
+    #?(:clj [libphonenumber.core :as libphonenumber])
+    #?(:cljs [goog.string :refer [format]])
+    #?(:cljs [goog.string.format])))
+
+
+(defmulti ->str type)
+
+#?(:clj
+   (defmethod ->str clojure.lang.Keyword
+     [value]
+     (name value)))
+
+#?(:cljs
+   (defmethod ->str cljs.core.Keyword
+     [value]
+     (name value)))
+
+
+(defmethod ->str :default
+  [value]
+  (str value))
 
 
 (def non-blank
@@ -19,6 +39,17 @@
 (def keyword-like
   {:optional true
    :coerce #(if (blank? %) nil (keyword %))})
+
+
+(defn enum-factory
+  [choices]
+  {:optional true
+   :validate #(contains? choices %)
+   :message (format "allowed values: %s"
+                    (->> choices
+                         (map ->str)
+                         sort
+                         (join ", ")))})
 
 
 #?(:clj
