@@ -25,6 +25,7 @@ This library adds following validators:
 - `non-blank-like`: coerces a non-nil value to `nil` if the value is an empty string or contains only white spaces
   coerces the value to `nil`, otherwise makes no changes
 - `keyword-like`: coerces a non-blank value to a `keyword`
+- `enum-factory`: creates a validator that validates if a value is in a given coll (it should be a set for perf.)
 - `bigdec-str`: coerces a non-blank value to a `bigdec` (Clojure only)
 - `cz-phone`: validates a given value if it's a valid phone number, if so it formats the value into `E164`
  (+420777666555), if the value is without prefix, `+420` will be used as default (Clojure only)
