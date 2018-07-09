@@ -6,8 +6,10 @@
 
   :dependencies [[druids/libphonenumber "0.2.0-snapshot-1"]]
 
+  :cloverage {:fail-threshold 95}
 
-  :profiles {:dev {:plugins [[lein-cloverage "1.0.10"]
+
+  :profiles {:dev {:plugins [[lein-cloverage "1.0.11"]
                              [lein-kibit "0.1.6"]
                              [jonase/eastwood "0.2.6"]
                              [eftest "0.5.0"]]
@@ -34,4 +36,4 @@
   :aliases {"cljs-tests" ["with-profile" "cljs" "doo" "phantom" "once"]
             "cljs-auto" ["with-profile" "cljs" "cljsbuild" "auto"]
             "cljs-once" ["with-profile" "cljs" "cljsbuild" "once"]
-            "coverage" ["with-profile" "dev" "cloverage" "--fail-threshold" "95"]})
+            "coverage" ["with-profile" "dev" "cloverage"]})
