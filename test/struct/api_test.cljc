@@ -35,6 +35,14 @@
            [nil {:lang :CZK, :num 8}] {:lang "CZK", :num 8})))
 
 
+(t/deftest test-every-factory
+  (let [scheme {:values [(st/every-factory {:num [st/required st/integer-str]})]}]
+    (t/are [expected input] (= expected (st/validate input scheme))
+
+           [{:values "must match all items in a sequence"} {}] {:values [{:num "A"} {:num "B"}]}
+           [nil {:values [{:num 1} {:num 2}]}] {:values [{:num "1"} {:num "2"}]})))
+
+
 #?(:clj
    (t/deftest test-phone-number
      (let [scheme {:phone [st/cz-phone]}]
