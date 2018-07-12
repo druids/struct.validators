@@ -1,3 +1,10 @@
+## 0.5.0
+
+#### New Features
+
+  - Add a every-factory for creating validators #14
+
+
 ## 0.4.0
 
 #### New Features
