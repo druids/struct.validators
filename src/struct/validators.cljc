@@ -2,6 +2,7 @@
   (:require
     [clojure.string :refer [blank? join]]
     [cuerdas.core :as cuerdas]
+    [struct.core :as st]
     #?(:clj [libphonenumber.core :as libphonenumber])
     #?(:cljs [goog.string :refer [format]])
     #?(:cljs [goog.string.format])))
@@ -50,6 +51,13 @@
                          (map ->str)
                          sort
                          (join ", ")))})
+
+
+(defn every-factory
+  [schema]
+  {:message "must match all items in a sequence"
+   :validate #(every? true? (map (fn [item] (let [[errors _] (st/validate item schema)] (nil? errors))) %))
+   :coerce #(map (fn [item] (let [[ _ model] (st/validate item schema)] model)) %)})
 
 
 #?(:clj

@@ -47,6 +47,7 @@
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
 (def enum-factory v/enum-factory)
+(def every-factory v/every-factory)
 
 #?(:clj
    (def bigdec-str v/bigdec-str))
