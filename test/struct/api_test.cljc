@@ -36,11 +36,16 @@
 
 
 (t/deftest test-every-factory
-  (let [scheme {:values [(st/every-factory {:num [st/required st/integer-str]})]}]
-    (t/are [expected input] (= expected (st/validate input scheme))
+  (t/testing "test every-factory"
+    (let [scheme {:values [(st/every-factory {:num [st/required st/integer-str]})]}]
+      (t/are [expected input] (= expected (st/validate input scheme))
 
-           [{:values "must match all items in a sequence"} {}] {:values [{:num "A"} {:num "B"}]}
-           [nil {:values [{:num 1} {:num 2}]}] {:values [{:num "1"} {:num "2"}]})))
+             [{:values "must match all items in a sequence"} {}] {:values [{:num "A"} {:num "B"}]}
+             [nil {:values [{:num 1} {:num 2}]}] {:values [{:num "1"} {:num "2"}]})))
+
+  (t/testing "should pass an option map"
+    (t/is (= [nil {:values [{:num 8}]}] (st/validate {:values [{:num 8, :foo 10}]}
+                                                     {:values [(st/every-factory {:num [st/required]})]})))))
 
 
 #?(:clj
