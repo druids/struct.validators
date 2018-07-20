@@ -54,10 +54,12 @@
 
 
 (defn every-factory
-  [schema]
-  {:message "must match all items in a sequence"
-   :validate #(every? true? (map (fn [item] (let [[errors _] (st/validate item schema)] (nil? errors))) %))
-   :coerce #(map (fn [item] (let [[ _ model] (st/validate item schema)] model)) %)})
+  ([schema]
+   (every-factory schema {:strip true}))
+  ([schema opts]
+   {:message "must match all items in a sequence"
+    :validate #(every? true? (map (fn [item] (let [[errors _] (st/validate item schema opts)] (nil? errors))) %))
+    :coerce #(map (fn [item] (let [[ _ model] (st/validate item schema opts)] model)) %)}))
 
 
 #?(:clj
