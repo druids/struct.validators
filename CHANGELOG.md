@@ -1,3 +1,11 @@
+## 0.6.0
+
+#### New Features
+
+
+  - Allow to pass an option map into every-factory, {:strip true} is default #16
+
+
 ## 0.5.0
 
 #### New Features
