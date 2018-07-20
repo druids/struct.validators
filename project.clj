@@ -1,4 +1,4 @@
-(defproject struct.validators "0.5.0"
+(defproject struct.validators "0.6.0"
   :description "Additional validators for Struct library"
   :url "https://github.com/druids/struct.validators"
   :license {:name "MIT License"
