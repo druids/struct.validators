@@ -1,3 +1,10 @@
+## 0.7.0
+
+#### New Features
+
+  - Add truth validator #18
+
+
 ## 0.6.0
 
 #### New Features
