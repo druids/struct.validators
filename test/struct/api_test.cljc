@@ -23,7 +23,17 @@
              [{:name "must not be blank"} {:role :admin, :title "Ing."}] {:name "", :role "admin", :title "Ing."}
              [nil {:name "foo", :role :admin, :title "Ing."}] {:name "foo", :role "admin", :title "Ing."}
              [{:name "must not be blank"} {:role nil, :title nil}] {:name " ", :role " ", :title ""}
-             [nil {:name nil, :role nil, :title nil}] {:name nil, :role nil, :title nil}))))
+             [nil {:name nil, :role nil, :title nil}] {:name nil, :role nil, :title nil})))
+
+
+  (t/testing "truth validator"
+    (let [scheme {:pep? [st/truth]}]
+      (t/are [expected input] (= expected (st/validate input scheme))
+
+        [{:pep? "must be checked"} {}] {:pep? nil}
+        [{:pep? "must be checked"} {}] {:pep? 1}
+        [nil {:pep? true}] {:pep? true}
+        [{:pep? "must be checked"} {}] {:pep? false}))))
 
 
 (t/deftest test-enum-factory

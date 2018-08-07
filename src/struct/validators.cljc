@@ -62,6 +62,12 @@
     :coerce #(map (fn [item] (let [[ _ model] (st/validate item schema opts)] model)) %)}))
 
 
+(def truth
+  {:message "must be checked"
+   :validate true?
+   :optional false})
+
+
 #?(:clj
    (defn phone-factory
      [country-code]
