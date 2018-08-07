@@ -12,7 +12,7 @@ Leiningen/Boot
 --------------
 
 ```clojure
-[struct.validators "0.6.0"]
+[struct.validators "0.7.0"]
 ```
 
 
