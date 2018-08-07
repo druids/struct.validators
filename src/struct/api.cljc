@@ -46,6 +46,7 @@
 (def non-blank v/non-blank)
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
+(def truth v/truth)
 (def enum-factory v/enum-factory)
 (def every-factory v/every-factory)
 

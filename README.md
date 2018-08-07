@@ -25,6 +25,7 @@ This library adds following validators:
 - `non-blank-like`: coerces a non-nil value to `nil` if the value is an empty string or contains only white spaces
   coerces the value to `nil`, otherwise makes no changes
 - `keyword-like`: coerces a non-blank value to a `keyword`
+- `truth`: validates if a given value is `true`
 - `enum-factory`: creates a validator that validates if a value is in a given coll (it should be a set for perf.)
 - `every-factory`: creates a validator that validates if all items in a sequence satisfy a given scheme, allow
  to pass an option map for `validate` function (`{:strip true}` is used as default)
