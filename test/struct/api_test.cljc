@@ -79,3 +79,18 @@
              [nil {:amount 1.0M, :volume 1M}] {:amount "1.0", :volume 1}
 
              [{:amount "must be a number"} {:volume 1M}] {:amount "", :volume 1}))))
+
+
+#?(:clj
+   (t/deftest uuid-like-str-test
+     (let [scheme {:id [st/uuid-like-str]}]
+
+       (t/is (= [nil {:id #uuid "0f834594-3839-b9b7-8f7b-9c9f16793d4e"}]
+                (st/validate {:id "0f834594-3839-b9b7-8f7b-9c9f16793d4e"} scheme))))))
+
+
+#?(:cljs
+   (t/deftest uuid-like-str-test
+     (let [scheme {:id [st/uuid-like-str]}]
+       (t/is (= [nil {:id #uuid "0f834594-3839-b9b7-8f7b-9c9f16793d4e"}]
+                (st/validate {:id "0f834594-3839-b9b7-8f7b-9c9f16793d4e"} scheme))))))

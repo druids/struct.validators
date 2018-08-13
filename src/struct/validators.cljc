@@ -90,3 +90,15 @@
       :optional true
       :validate #(or (number? %) (and (string? %) (cuerdas/numeric? %)))
       :coerce bigdec}))
+
+
+(def ^:const ^:private uuid-re
+  #"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$")
+
+(def uuid-like-str
+  {:message "must be an uuid"
+   :optional true
+   :validate #(and (string? %)
+                   (re-seq uuid-re %))
+   :coerce #?(:clj #(java.util.UUID/fromString %)
+              :cljs #(uuid %))})
