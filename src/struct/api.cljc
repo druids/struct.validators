@@ -47,6 +47,7 @@
 (def non-blank-like v/non-blank-like)
 (def keyword-like v/keyword-like)
 (def truth v/truth)
+(def uuid-like-str v/uuid-like-str)
 (def enum-factory v/enum-factory)
 (def every-factory v/every-factory)
 
