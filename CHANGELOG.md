@@ -1,3 +1,10 @@
+## 0.8.0
+
+#### New Features
+
+  - Add uuid-like-str #20
+
+
 ## 0.7.0
 
 #### New Features
