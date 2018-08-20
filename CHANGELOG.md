@@ -1,3 +1,10 @@
+## 0.8.1
+
+#### Changes
+
+  - uuid-like-str validator is more opened #22
+
+
 ## 0.8.0
 
 #### New Features
