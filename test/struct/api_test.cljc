@@ -17,13 +17,21 @@
   (t/testing "optional fields"
     (let [scheme {:name [st/non-blank]
                   :title [st/non-blank-like]
-                  :role [st/keyword-like]}]
+                  :role [st/non-blank-like st/keyword-like]}]
       (t/are [expected input] (= expected (st/validate input scheme))
 
              [{:name "must not be blank"} {:role :admin, :title "Ing."}] {:name "", :role "admin", :title "Ing."}
              [nil {:name "foo", :role :admin, :title "Ing."}] {:name "foo", :role "admin", :title "Ing."}
              [{:name "must not be blank"} {:role nil, :title nil}] {:name " ", :role " ", :title ""}
              [nil {:name nil, :role nil, :title nil}] {:name nil, :role nil, :title nil})))
+
+  (t/testing "keyword-like"
+    (let [schema {:name [st/keyword-like]}]
+      (t/are [expected input] (= expected (st/validate input schema))
+        [nil {:name :bar}] {:name :bar}
+        [nil {:name nil}] {:name 3}
+        [nil {:name :bar}] {:name "bar"}
+        [nil {:name nil}] {:name nil})))
 
 
   (t/testing "truth validator"

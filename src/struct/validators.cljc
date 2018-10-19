@@ -28,7 +28,7 @@
 
 (def non-blank
   {:message "must not be blank"
-   :validate #(or (nil? %) (not (blank? %)))
+   :validate (complement blank?)
    :optional true})
 
 
@@ -39,7 +39,7 @@
 
 (def keyword-like
   {:optional true
-   :coerce #(if (blank? %) nil (keyword %))})
+   :coerce #(when (some? %) (keyword %))})
 
 
 (defn enum-factory
