@@ -1,3 +1,10 @@
+## 0.9.0
+
+#### Fixes
+
+  - Fix keyword-like that fails when an argument is not a string #24
+
+
 ## 0.8.1
 
 #### Changes
