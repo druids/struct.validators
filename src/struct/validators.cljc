@@ -28,7 +28,7 @@
 
 (def non-blank
   {:message "must not be blank"
-   :validate #(or (nil? %) (not (blank? %)))
+   :validate (complement blank?)
    :optional true})
 
 
